@@ -1,0 +1,60 @@
+{
+  "name": "ectoken",
+  "version": "0.1.0",
+  "description": "ectoken",
+  "main": "dist/index.js",
+  "bin": {
+    "ectoken": "dist/index.js"
+  },
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebikul/ectoken.git"
+  },
+  "author": "MURAL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebikul/ectoken.git"
+  },
+  "homepage": "https://github.com/sebikul/ectoken.git",
+  "devDependencies": {
+    "@types/chai": "4.2.12",
+    "@types/debug": "4.1.5",
+    "@types/joi": "14.3.4",
+    "@types/mocha": "8.0.3",
+    "@types/node": "^12.12.54",
+    "@types/std-mocks": "1.0.0",
+    "@types/yargs": "15.0.5",
+    "chai": "4.2.0",
+    "mocha": "8.1.1",
+    "nyc": "15.1.0",
+    "prettier": "2.0.5",
+    "std-mocks": "1.0.1",
+    "ts-node": "8.10.2",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "5.11.2",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.3.0",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "debug": "4.2.0",
+    "dos-config": "3.0.2",
+    "joi": "17.2.1",
+    "yargs": "15.4.1"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "scripts": {
+    "build": "npm run lint && tsc",
+    "clean": "npm run clean:dist && npm run clean:node",
+    "clean:dist": "rm -rf dist",
+    "clean:node": "rm -rf node_modules",
+    "lint": "npm run prettier:check && tslint -p .",
+    "prettier:check": "prettier --check ./{src,test}/**/*.{ts,js}",
+    "prettier:write": "prettier --write ./{src,test}/**/*.{ts,js}",
+    "test": "npm run build && cd dist && mocha",
+    "watch": "tsc -w"
+  }
+}
